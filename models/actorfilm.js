@@ -1,5 +1,5 @@
 module.exports = (Sequelize, sequelize) => {
-    return sequelize.define('ActorsFilms', {
+    return sequelize.define('ActorFilms', {
         actorId: {
             type: Sequelize.INTEGER,
             allowNull: false

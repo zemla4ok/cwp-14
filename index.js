@@ -33,8 +33,11 @@ async function Work(){
     await db.actors.bulkCreate(actors);
     await db.actorfilms.bulkCreate([
         {actorId: 1, filmId: 1},
-        {actorId: 2, filmId: 2},        
-    ])
+        {actorId: 1, filmId: 2},    
+        {actorId: 1, filmId: 3},
+        {actorId: 3, filmId: 3}     
+    ]);
+    
 
     //4. delete actors where liked = 0;
     await db.actors.destroy({
@@ -42,4 +45,15 @@ async function Work(){
             liked: 0
         }
     });
+
+    //5. get film with all actors in one query
+    let film = await db.films.findById(3, {
+        include: [{
+            model: db.actors,
+            as: 'Actors'
+        }]
+    });
+    film.Actors.forEach((actor) => {
+        console.log(actor.name);
+    })
 }
