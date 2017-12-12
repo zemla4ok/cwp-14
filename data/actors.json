@@ -9,6 +9,14 @@
     },
     {
         "id": 2,
+        "name": "Matt",
+        "birth": "08.10.1970",
+        "films": 228,
+        "liked": 0,
+        "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_6458.jpg"
+    },
+    {
+        "id": 3,
         "name": "Tom Hanks",
         "birth": "09.07.1956",
         "films": 342,
@@ -16,11 +24,19 @@
         "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_9144.jpg"
     },
     {
-        "id": 3,
+        "id": 4,
         "name": "Matt Damon",
         "birth": "08.10.1970",
         "films": 228,
         "liked": 5994,
+        "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_6458.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Damon",
+        "birth": "08.10.1970",
+        "films": 228,
+        "liked": 0,
         "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_6458.jpg"
     }
 ]

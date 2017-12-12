@@ -29,4 +29,17 @@ async function Work(){
     //2. insert 3 films in package
     await db.films.bulkCreate(films.slice(0,3));
 
+    //3. package update
+    await db.actors.bulkCreate(actors);
+    await db.actorfilms.bulkCreate([
+        {actorId: 1, filmId: 1},
+        {actorId: 2, filmId: 2},        
+    ])
+
+    //4. delete actors where liked = 0;
+    await db.actors.destroy({
+        where: {
+            liked: 0
+        }
+    });
 }
