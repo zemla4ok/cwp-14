@@ -1,6 +1,6 @@
 const Actor = require('./actor');
 const Film = require('./film');
-const ActorsFilms = require('./actorsfilms');
+const ActorsFilms = require('./actorfilm');
 
 module.exports = (Sequelize, config) => {
     const sequelize = new Sequelize(config.db, config.login, config.password, {
