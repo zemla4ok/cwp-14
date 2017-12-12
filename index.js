@@ -26,5 +26,7 @@ async function Work(){
         poster: 'no'
     });*/
 
-    
+    //2. insert 3 films in package
+    await db.films.bulkCreate(films.slice(0,3));
+
 }

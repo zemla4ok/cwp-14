@@ -1,6 +1,6 @@
 const Actor = require('./actor');
 const Film = require('./film');
-const ActorsFilms = require('./actorfilm');
+const ActorFilms = require('./actorfilm');
 
 module.exports = (Sequelize, config) => {
     const sequelize = new Sequelize(config.db, config.login, config.password, {
@@ -16,15 +16,15 @@ module.exports = (Sequelize, config) => {
 
     const films = Film(Sequelize, sequelize);
     const actors = Actor(Sequelize, sequelize);
-    const actorsfilms = ActorsFilms(Sequelize, sequelize);
+    const actorfilms = ActorFilms(Sequelize, sequelize);
 
-    actors.belongsToMany(films, {as: 'Films', through: 'ActorsFilms'});
-    films.belongsToMany(actors, {as: 'Actors', through: 'ActorsFilms'});
+    actors.belongsToMany(films, {as: 'Films', through: 'ActorFilms'});
+    films.belongsToMany(actors, {as: 'Actors', through: 'ActorFilms'});
 
     return {
         films,
         actors,
-        actorsfilms,
+        actorfilms,
 
         sequelize: sequelize,
         Sequelize: Sequelize,
