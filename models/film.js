@@ -42,7 +42,7 @@ module.exports = (Sequelize, sequelize) => {
         }
     }, {
         scopes: {
-            modern: {
+            newFilms: {
                 where: {
                     year: {
                         [Sequelize.Op.gte]: 2007

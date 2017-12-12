@@ -30,6 +30,7 @@ async function Work(){
     await db.films.bulkCreate(films.slice(0,3));
 
     //3. package update
+    await db.films.bulkCreate(films.slice(3));
     await db.actors.bulkCreate(actors);
     await db.actorfilms.bulkCreate([
         {actorId: 1, filmId: 1},
@@ -56,4 +57,15 @@ async function Work(){
     film.Actors.forEach((actor) => {
         console.log(actor.name);
     })
+
+    //6. scope for films after 2007
+    console.log('films after 2007');
+    let films2007 = db.films.scope('newFilms');
+    films = await films2007.findAll();
+    films.forEach((film) => {
+        console.log(film.title);
+    })
+
+
+
 }
