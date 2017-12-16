@@ -38,8 +38,16 @@ async function Work(){
         {actorId: 1, filmId: 3},
         {actorId: 3, filmId: 3}     
     ]);
-    
 
+    await db.actors.update({
+        liked: 100500
+    },
+    {
+        where:{
+            films: { [Sequelize.Op.gt]: 228 }
+        }    
+    })
+    
     //4. delete actors where liked = 0;
     await db.actors.destroy({
         where: {
@@ -66,6 +74,22 @@ async function Work(){
         console.log(film.title);
     })
 
-
-
+    //8. transaction
+    console.log('transaction');
+    await db.sequelize.transaction().then((tran) => {
+        return db.actors.update({
+            liked: 0
+        }, 
+        {
+            transaction: tran,
+            where: {}
+        }).then(() => {
+            console.log('wait 10 sec...');
+            setTimeout(function () {
+                console.log("rollback");
+                return tran.rollbak();
+                //return tran.commit();
+            }, 10000);
+        });
+    });
 }

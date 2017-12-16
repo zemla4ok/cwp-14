@@ -2,6 +2,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "mysql2": "^1.5.1",
-    "sequelize": "^4.28.0"
+    "sequelize": "^4.28.0",
+    "sequelize-init": "0.0.3"
   }
 }
