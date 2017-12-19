@@ -32,12 +32,7 @@ async function Work(){
     //3. package update
     await db.films.bulkCreate(films.slice(3));
     await db.actors.bulkCreate(actors);
-    await db.actorfilms.bulkCreate([
-        {actorId: 1, filmId: 1},
-        {actorId: 1, filmId: 2},    
-        {actorId: 1, filmId: 3},
-        {actorId: 3, filmId: 3}     
-    ]);
+
 
     await db.actors.update({
         liked: 100500
@@ -93,3 +88,15 @@ async function Work(){
         });
     });
 }
+
+
+
+
+
+
+/*  //  await db.actorfilms.bulkCreate([
+  //      {actorId: 1, filmId: 1},
+  //      {actorId: 1, filmId: 2},    
+  //      {actorId: 1, filmId: 3},
+  //      {actorId: 3, filmId: 3}     
+  //  ]); */
